@@ -364,7 +364,6 @@ function updatePositions() {
 }
 
 window.addEventListener('scroll', updatePositions);
-
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
