@@ -308,6 +308,8 @@ var resizePizzas = function(size) {
     default:
       console.log("bug in sizeSwitcher");
   }
+  var pizzaSizeChange = document.getElementsByClassName('randomPizzaContainer');
+  var pizzaChangeLength = pizzaSizeChange.length;
 
   for (var i = 0; i < pizzaChangeLength; i++) {
   pizzaSizeChange[i].style.width = changedWidth + '%';
@@ -347,13 +349,13 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  var items = document.getElementByClassName('.mover');
+  var items = document.getElementByClassName('mover');
   var phase = [];
   for (var i = 0; i < items.length; i++) {
     phase.push(Math.sin((document.body.scrollTop / 1250) + (i % 5)));
   }
   for (i = 0; i < items.length; i++) {
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.left = items[i].basicLeft + 100 * phase[i] + 'px';
   }
   window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
@@ -367,7 +369,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 240; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
