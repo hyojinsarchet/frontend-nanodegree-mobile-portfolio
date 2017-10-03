@@ -323,12 +323,11 @@ var resizePizzas = function(size) {
   console.log("Time to resize pizzas: " + timeToResize[timeToResize.length-1].duration + "ms");
 };
 
-window.performance.mark("mark_start_generating"); // collect timing data
-pizzasDiv.appendChild(pizzaElementGenerator(i));
+window.performance.mark("mark_start_generating"); // collect timing dat
+var pizzasDiv = document.getElementById("randomPizzas");
 
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
-
+  pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
 window.performance.mark("mark_end_generating");
@@ -350,7 +349,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  var items = document.getElementByClassName('.mover');
+  var items = document.getElementsByClassName('mover');
   var phase = [];
   for (var i = 0; i < items.length; i++) {
     phase.push(Math.sin((document.body.scrollTop / 1250) + (i % 5)));
