@@ -350,7 +350,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  var items = document.getElementByClassName('mover');
+  var items = document.getElementByClassName('.mover');
   var phase = [];
   for (var i = 0; i < items.length; i++) {
     phase.push(Math.sin((document.body.scrollTop / 1250) + (i % 5)));
@@ -370,7 +370,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 64; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
